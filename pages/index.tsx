@@ -1,5 +1,4 @@
 import type { NextPage } from 'next';
-import Head from 'next/head';
 import styles from '../styles/module/Home.module.css';
 import { Button, TextInput, PasswordInput } from '@mantine/core';
 import { useForm } from '@mantine/form';

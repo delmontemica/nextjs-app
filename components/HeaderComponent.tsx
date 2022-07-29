@@ -6,9 +6,11 @@ type Props = {
 
 const HeaderComponent = (props: Props) => {
     const { title } = props;
+    const appTitle = `Finance app - ${title}`;
+    
     return (
         <Head>
-            <title>Finance App - {title}</title>
+            <title>Finance App - {appTitle}</title>
             <meta name="description" content="Finance app made with Next.js" />
             <link rel="icon" href="/favicon.ico" />
         </Head>
