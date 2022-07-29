@@ -1,40 +1,50 @@
 import type { NextPage } from 'next';
 import styles from '../styles/module/Home.module.css';
-import { Button, TextInput, PasswordInput } from '@mantine/core';
-import { useForm } from '@mantine/form';
-import HeaderComponent from "../components/HeaderComponent";
+import HeaderComponent from '../components/HeaderComponent';
+import { Box, Button, TextField } from '@mui/material';
+import { FormEvent } from 'react';
 
 const Home: NextPage = () => {
-    const form = useForm({
-        initialValues: { username: '', password: '' },
-
-        validate: {
-            username: (value) => (value.length === 0 ? 'Please input your username.' : null),
-            password: (value) => (value.length === 0 ? 'Please input your password.' : null),
-        },
-    });
+    const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+        const data = new FormData(event.currentTarget);
+        console.log({
+            email: data.get('username'),
+            password: data.get('password'),
+        });
+    };
 
     return (
         <div className={styles.container}>
             <HeaderComponent title="Login" />
-
             <main className={styles.main}>
-                <form onSubmit={form.onSubmit(console.log)}>
-                    <TextInput
-                        placeholder="Input your username"
+                <Box component="form"
+                     onSubmit={handleSubmit}
+                >
+                    <TextField
+                        id="username"
+                        name="username"
                         label="Username"
-                        {...form.getInputProps('username')}
-                    />
-                    <PasswordInput
-                        placeholder="Input your password"
+                        variant="outlined"
+                        fullWidth
+                        margin="normal" />
+                    <TextField
+                        id="password"
+                        name="password"
                         label="Password"
-                        {...form.getInputProps('password')}
-                    />
-
-                    <Button type="submit" mt="sm">
-                        Login
+                        type="password"
+                        variant="outlined"
+                        fullWidth
+                        margin="normal" />
+                    <Button
+                        type="submit"
+                        fullWidth
+                        variant="contained"
+                        sx={{ mt: 3, mb: 2 }}
+                    >
+                        Sign In
                     </Button>
-                </form>
+                </Box>
             </main>
 
         </div>
