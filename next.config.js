@@ -11,6 +11,8 @@ module.exports = withPWA({
     swcMinify: true,
     pwa: {
         dest: 'public',
+        register: true,
+        skipWaiting: true,
         runtimeCaching
     },
 });

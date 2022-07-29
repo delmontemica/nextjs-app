@@ -3,8 +3,11 @@ import styles from '../styles/module/Home.module.css';
 import HeaderComponent from '../components/HeaderComponent';
 import { Box, Button, TextField } from '@mui/material';
 import { FormEvent } from 'react';
+import { useRouter } from 'next/router';
 
 const Home: NextPage = () => {
+    const router = useRouter();
+
     const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         const data = new FormData(event.currentTarget);
@@ -12,6 +15,7 @@ const Home: NextPage = () => {
             email: data.get('username'),
             password: data.get('password'),
         });
+        router.push('dashboard');
     };
 
     return (
