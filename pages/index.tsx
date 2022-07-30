@@ -15,7 +15,7 @@ const Home: NextPage = () => {
             email: data.get('username'),
             password: data.get('password'),
         });
-        router.push('dashboard');
+        router.push('/dashboard');
     };
 
     return (

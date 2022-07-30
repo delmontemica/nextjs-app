@@ -3,7 +3,6 @@ import HeaderComponent from '../../components/HeaderComponent';
 import styled from 'styled-components';
 import {
     AppBar,
-    Box,
     IconButton,
     Menu,
     MenuItem,
@@ -16,11 +15,16 @@ import {
     Typography
 } from '@mui/material';
 import React, { useState } from 'react';
-import { AccountCircle, Create } from '@mui/icons-material';
+import {
+    AccountBalance,
+    AccountCircle,
+    Assessment, AutoAwesomeMosaic,
+    Create, FormatListBulleted
+} from '@mui/icons-material';
 import HomeComponent from '../../components/dashboard/HomeComponent';
 
 const HeaderNavContainer = styled.div`
-  background: #EDAFB8;
+  background: #14213D;
 `;
 
 const actions = [
@@ -46,9 +50,9 @@ function TabPanel(props: TabPanelProps) {
             { ...other }
         >
             { value === index && (
-                <Box sx={ { p: 3 } }>
+                <div>
                     { children }
-                </Box>
+                </div>
             ) }
         </div>
     );
@@ -75,7 +79,8 @@ const Dashboard: NextPage = () => {
         <div>
             <HeaderComponent title="Dashboard" />
             <HeaderNavContainer>
-                <AppBar className="box-shadow-none" color="transparent"
+                <AppBar className="header-layout"
+                        color="transparent"
                         position="static">
                     <Toolbar>
                         <Typography variant="h6" component="div"
@@ -116,15 +121,15 @@ const Dashboard: NextPage = () => {
                 <Tabs
                     value={ value }
                     onChange={ handleChange }
-                    textColor="secondary"
-                    indicatorColor="secondary"
-                    aria-label="secondary tabs example"
+                    textColor="primary"
+                    indicatorColor="primary"
+                    aria-label="primary tabs"
                     centered
                 >
-                    <Tab value={ 0 } label="Home" />
-                    <Tab value={ 1 } label="Accounts" />
-                    <Tab value={ 2 } label="Reports" />
-                    <Tab value={ 3 } label="Ledger" />
+                    <Tab icon={<AutoAwesomeMosaic />} value={ 0 } label="Dashboard" />
+                    <Tab icon={<AccountBalance />} value={ 1 } label="Accounts" />
+                    <Tab icon={<Assessment />} value={ 2 } label="Reports" />
+                    <Tab icon={<FormatListBulleted />} value={ 3 } label="Ledger" />
                 </Tabs>
             </HeaderNavContainer>
             <div>

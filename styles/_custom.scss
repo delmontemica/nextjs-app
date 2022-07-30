@@ -1,0 +1,41 @@
+@import 'variables';
+
+/*
+  Custom SCSS for react-calendar.
+ */
+.react-calendar {
+  width: 100% !important;
+  font-family: $quicksand-font !important;
+  border: none !important;
+
+  button {
+    font-family: $quicksand-font !important;
+  }
+}
+
+.react-calendar__tile {
+  height: 4rem !important;
+}
+
+.react-calendar__tile--now {
+  background: #E5E5E5 !important;
+}
+
+.react-calendar__tile--active {
+  background: #FCA311 !important;
+}
+
+/*
+  Custom SCSS for MUI
+ */
+button {
+  font-family: $quicksand-font !important;
+}
+
+.Mui-selected {
+  color: #FCA311 !important;
+}
+
+.MuiTabs-indicator {
+  background-color: #FCA311;
+}

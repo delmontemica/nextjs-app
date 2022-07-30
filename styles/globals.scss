@@ -2,12 +2,14 @@
 /*@tailwind components;*/
 /*@tailwind utilities;*/
 
+@import 'variables';
+@import 'custom';
+
 html,
 body {
     padding: 0;
     margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    font-family: $quicksand-font !important;
 }
 
 a {
@@ -19,6 +21,7 @@ a {
     box-sizing: border-box;
 }
 
-.box-shadow-none {
+.header-layout {
     box-shadow: none !important;
+    color: white !important;
 }

@@ -1,8 +1,11 @@
-.tabList {
-  justify-content: center !important;
-  height: 50px;
+.cardItem {
+  background: #14213D !important;
+  margin-top: .25rem;
+}
 
-  .tabLink {
-    padding: 10px 35px;
-  }
+.expenseCost {
+  display: flex;
+  justify-content: right;
+  align-items: end;
+  flex-direction: column;
 }
