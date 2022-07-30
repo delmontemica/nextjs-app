@@ -38,8 +38,10 @@ const HomeComponent = () => {
                                             User | This is a description about the expense.
                                         </Grid>
                                         <Grid item xs={ 5 } className={styles.expenseCost}>
-                                            <Typography>¥1,000</Typography>
-                                            Credit Card
+                                            <div>
+                                                <Typography>¥1,000</Typography>
+                                                <div>Credit Card</div>
+                                            </div>
                                         </Grid>
                                     </Grid>
                                 </CardContent>
