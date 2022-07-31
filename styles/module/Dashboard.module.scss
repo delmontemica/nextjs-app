@@ -9,3 +9,12 @@
   align-items: end;
   flex-direction: column;
 }
+
+.icon {
+  padding-top: 5px;
+}
+
+.calendarItems {
+  height: 240px;
+  overflow: scroll;
+}

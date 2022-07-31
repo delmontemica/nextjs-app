@@ -18,7 +18,7 @@ import React, { useState } from 'react';
 import {
     AccountBalance,
     AccountCircle,
-    Assessment, AutoAwesomeMosaic,
+    AutoAwesomeMosaic,
     Create, FormatListBulleted
 } from '@mui/icons-material';
 import HomeComponent from '../../components/dashboard/HomeComponent';
@@ -113,8 +113,7 @@ const Dashboard: NextPage = () => {
                             onClose={ handleClose }
                         >
                             <MenuItem onClick={ handleClose }>Profile</MenuItem>
-                            <MenuItem onClick={ handleClose }>My
-                                account</MenuItem>
+                            <MenuItem onClick={ handleClose }>Settings</MenuItem>
                         </Menu>
                     </Toolbar>
                 </AppBar>
@@ -128,7 +127,7 @@ const Dashboard: NextPage = () => {
                 >
                     <Tab icon={<AutoAwesomeMosaic />} value={ 0 } label="Dashboard" />
                     <Tab icon={<AccountBalance />} value={ 1 } label="Accounts" />
-                    <Tab icon={<Assessment />} value={ 2 } label="Reports" />
+                    {/*<Tab icon={<Assessment />} value={ 2 } label="Reports" />*/}
                     <Tab icon={<FormatListBulleted />} value={ 3 } label="Ledger" />
                 </Tabs>
             </HeaderNavContainer>
