@@ -2,6 +2,7 @@ import React from 'react';
 import { styled } from '@mui/material/styles';
 import {
     Box,
+    Button,
     FormControl,
     Grid,
     InputAdornment,
@@ -13,6 +14,7 @@ import {
     TextField,
     Typography
 } from '@mui/material';
+import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
 
 type Props = {
     show: boolean,
@@ -31,6 +33,13 @@ const CardItemDetails = (props: Props) => {
 
     const handleChange = (event: SelectChangeEvent) => {
         setCategory(event.target.value);
+    };
+
+    const [date, setDate] = React.useState<Date | null>(
+        new Date(),
+    );
+    const handleDateChange = (newValue: Date | null) => {
+        setDate(newValue);
     };
 
     return (
@@ -55,6 +64,19 @@ const CardItemDetails = (props: Props) => {
                 <Box
                     component="form"
                 >
+                    <DesktopDatePicker
+                        label="Date"
+                        inputFormat="LL"
+                        value={date}
+                        onChange={handleDateChange}
+                        renderInput={(params: any) =>
+                            <TextField
+                                variant="standard"
+                                margin="normal"
+                                {...params}
+                                fullWidth />
+                        }
+                    />
                     <FormControl
                         variant="standard"
                         margin="normal"
@@ -66,7 +88,6 @@ const CardItemDetails = (props: Props) => {
                             id="demo-simple-select-filled"
                             value={category}
                             onChange={handleChange}
-                            inputProps={{ readOnly: true }}
                         >
                             <MenuItem value={10}>Food</MenuItem>
                             <MenuItem value={20}>Shopping</MenuItem>
@@ -80,9 +101,6 @@ const CardItemDetails = (props: Props) => {
                         defaultValue="This is a description"
                         fullWidth
                         margin="normal"
-                        InputProps={{
-                            readOnly: true,
-                        }}
                     />
                     <Grid container columnSpacing={1}>
                         <Grid item xs={6}>
@@ -94,7 +112,6 @@ const CardItemDetails = (props: Props) => {
                                 fullWidth
                                 margin="normal"
                                 InputProps={{
-                                    readOnly: true,
                                     startAdornment: <InputAdornment position="start">¥</InputAdornment>,
                                 }}
                             />
@@ -111,7 +128,6 @@ const CardItemDetails = (props: Props) => {
                                     id="demo-simple-select-filled"
                                     value={category}
                                     onChange={handleChange}
-                                    inputProps={{ readOnly: true }}
                                 >
                                     <MenuItem value={10}>Food</MenuItem>
                                     <MenuItem value={20}>Shopping</MenuItem>
@@ -120,10 +136,18 @@ const CardItemDetails = (props: Props) => {
                             </FormControl>
                         </Grid>
                     </Grid>
+                    <Grid container columnSpacing={1}>
+                        <Grid item xs={6}>
+                            <Button variant="outlined" fullWidth>Close</Button>
+                        </Grid>
+                        <Grid item xs={6}>
+                            <Button variant="contained" fullWidth>Save</Button>
+                        </Grid>
+                    </Grid>
                 </Box>
             </StyledBox>
         </SwipeableDrawer>
-    )
-}
+    );
+};
 
 export default CardItemDetails;
